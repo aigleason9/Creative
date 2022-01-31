@@ -32,7 +32,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: /home/runner/work/Creative/Creative
-          remote: /var/www/html/
+          remote: /var/www/html/creative
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           privateKey: ${{ secrets.KEY }}
