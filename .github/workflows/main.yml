@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: To_Production
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      -  name: Parent working directory
+         run: pwd
+         
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout files
+        uses: actions/checkout@v2
+
+      # This copies everything in the www dir of your repo to your /var/www/html directory        
+      - name: Copy website files
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: /home/runner/work/projects/projects
+          remote: /var/www/html/
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          privateKey: ${{ secrets.KEY }}
