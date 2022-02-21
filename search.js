@@ -22,7 +22,7 @@ document.getElementById("poemSubmit").addEventListener("click", function(event) 
         url += "linecount,random/" + value + ";1";
     }
     else {
-        url += "random";
+        url += "random/1";
     }
     url += "/author,title,lines"
     fetch(url)
