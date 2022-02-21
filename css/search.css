@@ -52,7 +52,7 @@ p {
 .fontChange {
     position: sticky;
     bottom: 0;
-    margin: 0px auto 80px auto;
+    margin: 30px auto 80px auto;
     width: 75%;
     text-align: center;
 }
