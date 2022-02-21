@@ -11,6 +11,19 @@ document.getElementById("colorSubmit").addEventListener("click", function(event)
     document.body.style.backgroundColor = value;
 });
 
+document.getElementById("fontSubmit").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    let value = document.getElementById("fontInput").value;
+
+    if (value === "") {
+      return;
+    }
+    console.log(value);
+
+    document.body.style.fontFamily = value;
+});
+
 document.getElementById("poemSubmit").addEventListener("click", function(event) {
     event.preventDefault();
 

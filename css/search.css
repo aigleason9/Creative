@@ -15,6 +15,7 @@ body {
 .instruction {
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 15px;
 }
 
 .backgroundChange {
@@ -26,7 +27,7 @@ body {
     margin-top: 70px;
     justify-self: center;
     display: none;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .title .author .poem {
@@ -46,4 +47,17 @@ body {
 
 p {
     text-align: center;
+}
+
+.fontChange {
+    position: sticky;
+    bottom: 0;
+    margin: 0px auto 80px auto;
+    width: 75%;
+    text-align: center;
+}
+.outer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
