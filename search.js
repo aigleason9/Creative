@@ -1,24 +1,54 @@
-document.getElementById("bookSubmit").addEventListener("click", function(event) {
+document.getElementById("colorSubmit").addEventListener("click", function(event) {
     event.preventDefault();
 
-    const value = document.getElementById("bookInput").value;
+    let value = document.getElementById("colorInput").value;
 
     if (value === "") {
-      return;
+      value="#DE6E4B";
     }
     console.log(value);
 
-    const url = "https://reststop.randomhouse.com/resources/titles?start=0&max=10&expandLevel=1&search=" + value;
-    fetch(url, {
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-    }})
+    document.body.style.backgroundColor = value;
+});
+
+document.getElementById("poemSubmit").addEventListener("click", function(event) {
+    event.preventDefault();
+
+
+    let url = "https://poetrydb.org/";
+
+    let value = document.getElementById("poemInput").value;
+    if (value != "") {
+        url += "linecount,random/" + value + ";1";
+    }
+    else {
+        url += "random";
+    }
+    url += "/author,title,lines"
+    fetch(url)
 
     .then(function(response) {
       return response.json();
 
     }).then(function(json) {
         console.log(json);
+
+        let result = "<div class=\"container\">";
+
+        result += "<div class=\"title\">";
+        result += "<h3>" + json[0].title + "</h3> </div>";
+
+        result += "<div class=\"author\">";
+        result += "<h5>" + json[0].author + "</h5> </div>";
+
+        result += "<div class=\"poem\">";
+        const lines =  json[0].lines;
+        for (let i = 0; i < lines.length; i++) {
+            result += "<p><em>" + lines[i] + "</em></p>";
+        }
+
+        result += "</div></div>";
+        document.getElementById("poemResult").innerHTML = result;
+        document.getElementById("poemResult").style.display = "block";
     });
 });

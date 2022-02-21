@@ -22,22 +22,26 @@
                 <a class="nav-item nav-link" href="catalogue.html">Catalogue</a>
                 <a class="nav-item nav-link" href="staff.html">Staff Picks</a>
                 <a class="nav-item nav-link" href="about.html">About Us</a>
-                <a class="nav-item nav-link active" href="search.html">Search<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="search.html">Some Entertainment<span class="sr-only">(current)</span></a>
               </div>
             </div>
         </nav>
 
 
         <div class="welcome">
-            <h3>Search for a book you're interested in with a keyword from the title or the author's last name</h3>
+            <h3 class="instruction">Generate a random poem by entering a number of lines or leaving it blank, OR change the background color by entering a Hex Color Code.</h3>
         </div>
 
         <form class="searchInput">
-            <input id="bookInput" type="text" placeholder="Enter a keyword"></input>
-            <input id="bookSubmit" type="submit" value="Submit"></input>
+            <input id="poemInput" type="text" placeholder="Enter a number of lines"></input>
+            <input id="poemSubmit" type="submit" value="Submit"></input>
+        </form>
+        <form class="backgroundChange">
+            <input id="colorInput" type="text" placeholder="Enter a Hex Color Code"></input>
+            <input id="colorSubmit" type="submit" value="Submit"></input>
         </form>
 
-        <div class="searchResult"></div>
+        <div id="poemResult"></div>
             
 
         <nav class="navbar fixed-bottom navbar-dark bg-dark">
